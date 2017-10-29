@@ -35,5 +35,12 @@
 
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		<script src="game.js"></script>
+		<script>
+			$(document).ready(function() {
+				// Create Game object and start it
+				var game2048 = new Game($('#game'));
+				game2048.start();
+			});
+		</script>
 	</body>
 </html>
