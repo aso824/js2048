@@ -35,5 +35,15 @@ html, body {
 	align-items: center;
 }
 
-.gb-0 { visibility: hidden; }
-.gb-2 { background-color: #efefe6; }
+.gb-0 		{ visibility: hidden; }
+.gb-2 		{ background-color: #efefdc; color: #555; }
+.gb-4 		{ background-color: #ededc7; color: #555; }
+.gb-8 		{ background-color: #fcde71; color: #555; }
+.gb-16 		{ background-color: #f9be5e; color: #555; }
+.gb-32 		{ background-color: #f99c59; color: #fff; }
+.gb-64 		{ background-color: #f9724d; color: #fff; }
+.gb-128		{ background-color: #fcf68a; color: #555; }
+.gb-256		{ background-color: #fff66d; color: #555; }
+.gb-512		{ background-color: #fcf35a; color: #555; }
+.gb-1024	{ background-color: #fff22d; color: #555; }
+.gb-2048	{ background-color: #ffef00; color: #555; }
