@@ -15,6 +15,13 @@ function GameMap() {
 	}
 
 	/**
+	 * Return whole map.
+	 */
+	this.getMap = function() {
+		return map;
+	}
+
+	/**
 	 * Create block with 2 or 4 in random place.
 	 */
 	this.newRandomBlock = function() {

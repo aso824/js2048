@@ -35,7 +35,7 @@ html, body {
 	align-items: center;
 }
 
-.gb-0 		{ visibility: hidden; }
+.gb-0 		{ background-color: #d1c3ab; }
 .gb-2 		{ background-color: #efefdc; color: #555; }
 .gb-4 		{ background-color: #ededc7; color: #555; }
 .gb-8 		{ background-color: #fcde71; color: #555; }
