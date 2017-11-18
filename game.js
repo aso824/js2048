@@ -8,7 +8,11 @@ function Game(grid) {
 
 		this.map.newRandomBlock();
 		this.map.newRandomBlock();
-		
+
 		this.renderer.init();
+
+		console.log(this.map.getMap());
+		this.map.makeMove(0);
+		console.log(this.map.getMap());
 	};
 }

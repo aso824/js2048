@@ -43,4 +43,65 @@ function GameMap() {
 
 		return true;
 	}
+
+	/**
+	 * Rotate map array by (+/-){90, 180, 270} degrees.
+	 * Helper function for makeMove()
+	 *
+	 * @param int deg Degree to rotate
+	 */
+	this.rotateMap = function(deg) {
+		if (deg == 0)
+			return;
+
+		if (deg == 90) {
+			// Transpose array
+			map = map[0].map((col, i) => map.map(row => row[i]));
+
+			map.forEach(function(row, y) {
+				map[y].reverse();
+			});
+		} else if (deg == -90) {
+			// Ugly solution,but reverse+transpose didn't worked
+			this.rotateMap(180);
+			this.rotateMap(90);
+		} else if (deg == 180 || deg == -180) {
+			this.rotateMap(90);
+			this.rotateMap(90);
+		} else if (deg == 270) {
+			this.rotateMap(-90);
+		} else if (deg == -270) {
+			this.rotateMap(90);
+		} else {
+			console.error('Invalid rotateMap() argument: "' + deg + '"');
+			return false;
+		}
+	}
+
+	/**
+	 * Make map move.
+	 * @param int direction Move direction {0, 1, 2, 3}, counter-clockwise, starting from left
+	 */
+	this.makeMove = function(direction) {
+		// Rotate map to make move to left
+		this.rotateMap(direction * 90);
+
+		// Make move to left in each row
+		map.forEach(function(row, y) {
+			for (var i = 0; i < 4; i++) {
+				while (true) {
+					var index = row.indexOf(0);
+
+					if (index < 0) {
+						break;
+					}
+
+					row = row.splice(index, 1);
+				}
+			}
+		});
+
+		// Revert rotation from beginning of this function
+		this.rotateMap(-direction * 90);
+	}
 }
