@@ -86,18 +86,26 @@ function GameMap() {
 		// Rotate map to make move to left
 		this.rotateMap(direction * 90);
 
-		// Make move to left in each row
+		// Move all cells to left
 		map.forEach(function(row, y) {
-			for (var i = 0; i < 4; i++) {
-				while (true) {
-					var index = row.indexOf(0);
+			// Move cells to left
+			map[y] = map[y].filter(function(cell) {
+				return cell > 0;
+			});
 
-					if (index < 0) {
-						break;
-					}
-
-					row = row.splice(index, 1);
+			// Join cells
+			var loopStop = map[y].length - 1;
+			for (var i = 0; i < loopStop; i++) {
+				if (map[y][i] == map[y][i + 1]) {
+					map[y][i] *= 2;
+					map[y].splice(i + 1, 1);
+					loopStop--;
 				}
+			}
+
+			// Fill space with empty cells
+			while (map[y].length < 4) {
+				map[y].push(0);
 			}
 		});
 
