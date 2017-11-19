@@ -22,6 +22,28 @@
 				// Create Game object and start it
 				var game2048 = new Game($('#game'));
 				game2048.start();
+
+				// Bind keys
+				$(document).keydown(function(e) {
+					switch (e.key) {
+						case 'ArrowLeft':
+							game2048.doMove(0);
+							break;
+						case 'ArrowDown':
+							game2048.doMove(1);
+							break;
+						case 'ArrowRight':
+							game2048.doMove(2);
+							break;
+						case 'ArrowUp':
+							game2048.doMove(3);
+							break;
+						default:
+							return;
+					}
+
+					e.preventDefault();
+				});
 			});
 		</script>
 	</body>

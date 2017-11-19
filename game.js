@@ -10,9 +10,10 @@ function Game(grid) {
 		this.map.newRandomBlock();
 
 		this.renderer.init();
-
-		console.log(this.map.getMap());
-		this.map.makeMove(0);
-		console.log(this.map.getMap());
 	};
+
+	this.doMove = function(direction) {
+		this.map.makeMove(direction);
+		this.renderer.redraw();
+	}
 }

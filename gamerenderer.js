@@ -1,5 +1,9 @@
 function GameRenderer(grid, map) {
 	this.init = function() {
+		this.redraw();
+	}
+
+	this.redraw = function() {
 		grid.empty();
 
 		map.getMap().forEach(function(row, y) {
