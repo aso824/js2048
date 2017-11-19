@@ -13,7 +13,10 @@ function Game(grid) {
 	};
 
 	this.doMove = function(direction) {
-		this.map.makeMove(direction);
+		if (this.map.makeMove(direction)) {
+			this.map.newRandomBlock();
+		}
+		
 		this.renderer.redraw();
 	}
 }

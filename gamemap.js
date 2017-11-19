@@ -39,7 +39,7 @@ function GameMap() {
 			return false;
 
 		var cellCoordinates = availableCoordinates[Math.floor(Math.random() * availableCoordinates.length)];
-		map[cellCoordinates[0]][cellCoordinates[1]] = [2, 4][Math.floor(Math.random() * 2)];
+		map[cellCoordinates[0]][cellCoordinates[1]] = [2, 2, 2, 2, 4][Math.floor(Math.random() * 5)];
 
 		return true;
 	}
@@ -83,6 +83,9 @@ function GameMap() {
 	 * @param int direction Move direction {0, 1, 2, 3}, counter-clockwise, starting from left
 	 */
 	this.makeMove = function(direction) {
+		// Create map copy to compare after move
+		var mapCopy = JSON.stringify(map);
+
 		// Rotate map to make move to left
 		this.rotateMap(direction * 90);
 
@@ -111,5 +114,8 @@ function GameMap() {
 
 		// Revert rotation from beginning of this function
 		this.rotateMap(-direction * 90);
+
+		// Return true when maps changed
+		return JSON.stringify(map) !== mapCopy;
 	}
 }
